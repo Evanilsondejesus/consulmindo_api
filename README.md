@@ -8,6 +8,7 @@
 
 ![gif do game](https://github.com/Evanilsondejesus/galeria/blob/main/img/pacotes.png)
 ![gif do game](https://github.com/Evanilsondejesus/galeria/blob/main/img/promocao.png)
+![gif do game](https://github.com/Evanilsondejesus/galeria/blob/main/img/pacotes_contratado.png)
 ![gif do game](https://github.com/Evanilsondejesus/galeria/blob/main/img/login.png)
 
 #### Link do video a Agencia de viagem funcionando
