@@ -70,8 +70,7 @@ public class PrincipalControle {
     }
     
     
-    
-     
+  
      
     @GetMapping("/pacotes_user")   //Exibir uma lista personalizada dos pacotes  contratado pelo usuario
     public List<PacotesUser> PacotesUser() {
@@ -89,23 +88,7 @@ public class PrincipalControle {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
- 
+   
     @PostMapping("/pacotes_user/")  
     public PacotesUser updateClient(@RequestBody PacotesUser pacotesUser){
     	System.out.print(pacotesUser.getUserId());
@@ -116,13 +99,7 @@ public class PrincipalControle {
     
     
 
-    
-    
-    
-    
-    
-    
-    
+
     
     /*
     @GetMapping("/pacotes_user/")  
@@ -137,16 +114,7 @@ public class PrincipalControle {
     
     
     
-    
-  
-    
-    
-    
-    
-    
-    
-    
-/*
+
 @Transactional
 @DeleteMapping("/pacotes_user/{id}")  // delete pacote
 public void  deleteClient(@PathVariable int id){
@@ -154,12 +122,9 @@ public void  deleteClient(@PathVariable int id){
 pacotes_userDB.excluirPorId(id); // Metodos personalizado para deleta pacotes contratado em pacotes_user
 	       
 }
-
-   */ 
+   
     
     
-    
-
 
 
 /*
@@ -172,9 +137,7 @@ pacotes_userDB.excluirPorId(id); // Metodos personalizado para deleta pacotes co
     
     
     
-    
-    
-    
+      
 }
 
 

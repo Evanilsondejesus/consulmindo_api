@@ -6,14 +6,15 @@ import styles from '@/styles/Home.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Footer  from '@/components/foot'; 
 import Card from '@/components/card';
+import { useAutenticacao } from '@/conexao/autenticacaUser';
 
 
-
- 
  
  
 export default function Promocao() {
-  return (
+  const { userId, logado } = useAutenticacao();
+
+return (
     <>
       
 <header className="azul_fraco border  border-end-0 border-bottom-1 border-top-0 border-1 border-start-0">
@@ -26,28 +27,21 @@ export default function Promocao() {
 
 
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Promoção</li>
+  <ol className="breadcrumb">
+    <li className="breadcrumb-item"><a href="/">Home</a></li>
+    <li className="breadcrumb-item active" aria-current="page">Promoção</li>
   </ol>
 </nav>
 
+ 
+<div className="container-fluid ">
+<div className="d-flex flex-wrap">
+<span className="h2">Principais  destaque  <i class="bi bi-arrow-right"></i></span>
 
-
-    
-<div class="container-fluid ">
-<div class="d-flex flex-wrap">
-<span class="h2">Principais  destaque  <i class="bi bi-arrow-right"></i></span>
-
-<Card        url="promocao"  quantidade={5} />
+<Card        url="promocao"  quantidade={5}      userId={logado == true? userId: null }        />
  </div>
 </div>
    
-
-
-
-
-
 
 
 <Footer/>

@@ -62,10 +62,10 @@ EUA
 
 
 
-<div class="container-fluid  azul_fraco">
+<div className="container-fluid  azul_fraco">
  
 
-<figure class="figure mx-auto d-block">
+<figure className="figure mx-auto d-block">
   
  <figcaption class="figure-captionrounded w-25 mx-auto d-block">EUA</figcaption>
 <img src="img/eua.jpg" class="figure-img img-fluid rounded w-25 mx-auto d-block" alt="..."/>
@@ -73,7 +73,7 @@ EUA
 
 
 
-<div class="d-flex  p-2 bg-danger-subtle overflow-scroll ">
+<div className="d-flex  p-2 bg-danger-subtle overflow-scroll ">
  
 <img src="img/eua_1.jpg" class="rounded  d-block w-25 me-3" alt="..."/>
 
@@ -92,7 +92,7 @@ EUA
 
 
 
-<a href="#" class="btn btn-primary w-100">CONTRATAR PACOTE</a>
+<a href="#" className="btn btn-primary w-100">CONTRATAR PACOTE</a>
 </div>
 
 
@@ -107,7 +107,7 @@ EUA
 
 
 
-<div class=" mt-4 overflow-scroll ">
+<div className=" mt-4 overflow-scroll ">
 <h2>Veja outros fotos de outros lugares</h2>
   <div class="container-fluid  d-flex overflow-scroll flex-wrap">
  <Cards destino="Recife"   img="img/Recife.jpg" />

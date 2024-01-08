@@ -41,14 +41,32 @@ public interface PacotesUserDB extends JpaRepository<PacotesUser, Long> {
 	 
 	 
 	 
+ 
 	 
 	 
-	 @Modifying
-	@Query("DELETE FROM PacotesUser p WHERE p.idPacote = :id")
-	 int excluirPorId(@Param("id") int id);
+	 
+	/* 
+	@Modifying
+@Query("DELETE FROM PacotesUser p WHERE p.idPacote = :id")
+ int excluirPorId(@Param("id") int id);
 		 
+	*/ 
+	 
+	
+	
+	
 	 
 	 
+		@Modifying
+	@Query("DELETE FROM PacotesUser p WHERE p.id = :id")
+	 int excluirPorId(@Param("id") int id);
+			 
+		
+	
+	
+	
+	
+	
 	 
 	 
 }

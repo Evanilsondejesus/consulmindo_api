@@ -1,59 +1,28 @@
 
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Footer  from '@/components/foot'; 
 import Card from '@/components/card';
-
-import { useEffect , useState} from 'react';
-import { auth} from '@/conexao/firebaseConfig';
-
+import { useAutenticacao } from '@/conexao/autenticacaUser';
+import { useEffect } from 'react';
+ 
  
  
  
 export default function Contratado() {
-  const [userId, setUserId] = useState(null);
-
-  const [user, setUser] = useState(false);
-
-
-
+const { userId, logado } = useAutenticacao();
 
  
   useEffect(() => { 
-
-
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-    if (user) {
-    
-    setUserId(user.uid)
-    setUser(true)
-    
- 
-    } else {
-      
-    }
-    });
-     
-    
-     import('bootstrap/dist/js/bootstrap').then(() => {
+  
+  
+    import('bootstrap/dist/js/bootstrap').then(() => {
     }).catch((error) => {
     console.error('Erro ao carregar o Bootstrap:', error);
     });
-    return () => unsubscribe();
+   
     }, []);
-    
-
-
-
-
-
-
-
-
-
+  
+   
 
 
 
@@ -70,21 +39,17 @@ export default function Contratado() {
 
 
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Contratados</li>
+  <ol className="breadcrumb">
+    <li className="breadcrumb-item"><a href="/">Home</a></li>
+    <li className="breadcrumb-item active" aria-current="page">Contratados</li>
   </ol>
 </nav>
-
-
-
-   
-
+ 
 
 
 {userId != null &&
-<div class="container-fluid ">
-<div class="d-flex flex-wrap">
+<div className="container-fluid ">
+<div className="d-flex flex-wrap">
 <Card    url={"pacotes_user/"+ userId}    userId={userId}      />
 </div>
 </div>
@@ -97,27 +62,10 @@ export default function Contratado() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 <Footer/>
-
-
-
-
-
-
-
 
  
     </>

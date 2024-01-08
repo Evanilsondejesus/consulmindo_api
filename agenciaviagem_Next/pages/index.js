@@ -1,99 +1,29 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
- import 'bootstrap/dist/css/bootstrap.css'; 
-import { useEffect , useState} from 'react';
-
- import Link from 'next/link';
-//import Cards from "@/components/card"
+import 'bootstrap/dist/css/bootstrap.css'; 
+import { useEffect } from 'react';
 import Accordion_item from "@/components/accordion-item";
 import Lista_li from "@/components/Lista_li";
 import Footer  from '@/components/foot';
-import { auth} from '../conexao/firebaseConfig';
-import { signOut } from "firebase/auth"; 
-//import { fetchPacotes } from '@/components/requi';
 import Card from '@/components/card';
+import { useAutenticacao } from '@/conexao/autenticacaUser';
 
-
-
-
- 
 
 
 export default function Home() {
-
-
- 
-
-
- 
- 
-const [user, setUser] = useState(false);
-const [userId, setUserId] = useState(null);
-const [logado, setLogado] = useState(false);
- 
-
-
-
-
-
+const { userId, logado } = useAutenticacao();
 
  
 useEffect(() => { 
 
+
+  import('bootstrap/dist/js/bootstrap').then(() => {
+  }).catch((error) => {
+  console.error('Erro ao carregar o Bootstrap:', error);
+  });
  
+  }, []);
 
 
-
- 
-const unsubscribe = auth.onAuthStateChanged((user) => {
-if (user) {
-
-//setUser(user);
-// alert("logado seu id "+ user.uid)
-setUserId(user.uid)
-setUser(true)
-//alert(userId)
-setLogado(true);
-} else {
-  setUser(true)
- 
-//não logado
-// setUsuario(true)
-}
-});
- 
-
- import('bootstrap/dist/js/bootstrap').then(() => {
-}).catch((error) => {
-console.error('Erro ao carregar o Bootstrap:', error);
-});
-return () => unsubscribe();
-}, []);
-
-
-
-
-
-
-
-
-
-const deslogar = async () => {
- try {
-      await signOut(auth);
-     // alert("Deslogado com sucesso!");
-      window.location.reload();
-    } catch (error) {
-      console.error('Erro ao deslogar:', error.message);
-      alert(error.message)
-    }
-  };
-
-
-
- 
 
 
 return (
@@ -140,8 +70,9 @@ return (
 <div className="container-fluid bg-white" >
 <h2>Pacotes contratados</h2> 
 <div className='container'>
-<div class="d-flex flex-wrap" >
+<div className="d-flex flex-wrap" >
   <Card    quantidade={2}   url={"pacotes_user/"+ userId}    userId={userId}      />
+  
 
 </div>
 </div>
@@ -155,20 +86,12 @@ return (
 <div className="container-fluid bg-white" >
 <h2>Principais pacotes</h2> 
 <div className='container'>
-<div class="d-flex flex-wrap" >
+<div className="d-flex flex-wrap" >
 
  
-<Card   quantidade={5}   url="pacotes"   userId={logado == true? userId: null     }        />
+<Card   quantidade={5}   url="pacotes"   userId={logado == true? userId: null }        />
 
-
- {/* {pacotes.slice(0, 5).map((pacote, index) => (
- <Cards key={index} destino={pacote.destino} img={pacote.img} id={pacote.id}    userId={userId}/>
-   
-))} */}
-
-
-
-
+  
 
 </div>
 </div>
@@ -190,11 +113,11 @@ return (
 <div id="promocao" class="bg-white">
 <div class="row mx-auto">
 <h2>PROMOCÃO</h2>
-<div class="col-sm-6 mb-3 mb-sm-0">
-<div class="card">
-<div class="card-body">
-<h5 class="card-title">Viagen especial Disney <s>4000</s> por 2600  </h5>
-<p class="card-text">Com direito a um acompanhante</p>
+<div className="col-sm-6 mb-3 mb-sm-0">
+<div className="card">
+<div className="card-body">
+<h5 className="card-title">Viagen especial Disney <s>4000</s> por 2600  </h5>
+<p className="card-text">Com direito a um acompanhante</p>
 <a href="#" class="text-center" >ver</a><br/>
 <a href="#" class="btn btn-primary">CONTRATAR</a>
 </div>
@@ -202,11 +125,11 @@ return (
 </div>
 
 
-<div class="col-sm-6">
-<div class="card">
-<div class="card-body">
-<h5 class="card-title">Viagem em promoção Hawai <s>7000</s> por 3500</h5>
-<p class="card-text">Por pessoas</p>
+<div className="col-sm-6">
+<div className="card">
+<div className="card-body">
+<h5 className="card-title">Viagem em promoção Hawai <s>7000</s> por 3500</h5>
+<p className="card-text">Por pessoas</p>
 <a href="#" class="text-center" >ver</a><br/>
 <a href="#" class="btn btn-primary">CONTRATAR</a>
 </div>
@@ -215,7 +138,7 @@ return (
 </div>
 
 	
-<div class="  m-auto text-center p-0" >
+<div className="  m-auto text-center p-0" >
 <a href="promocao">mais promoções</a>
 </div>
  </div>		
@@ -232,7 +155,7 @@ return (
 <div className='mb-4'>
 <h2>Perguntas frequentes</h2>
 
-<div class="accordion" id="accordionExample">
+<div className="accordion" id="accordionExample">
 <Accordion_item  messagem="" titulo="Difculdade para viajar"/>
 
 <Accordion_item  messagem="" titulo="Percas e roubos"/>
@@ -248,8 +171,9 @@ return (
 </div>
   <Footer/>
 
-  <a href='#' className='w-100 btn bg-black text-white'    onClick={deslogar}        >SAIR</a>
- 
+   
+
+
 </>
   )
 }
